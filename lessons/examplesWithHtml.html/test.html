@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title >
+            Test Page
+        </title>
+    </head>
+    <body> 
+        <h1 id="first-header" onclick="changeColor()"> H1 header</h1>
+        <p class="first-css-class"> 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+            This is  a really long text, This is  a really long text, This is  a really long text, 
+        </p>
+        <style>
+            .first-css-class {
+                width: 500px;
+
+            }
+            h1 {
+
+                color: blue;
+
+            }
+        </style>
+        <script>
+            function changeColor(){
+                document.getElementById("first-header").style.color = 'red'
+                document.getElementById("first-header").innerHTML = "changed text"
+            
+            }
+        </script>
+    </body>
+</html>
