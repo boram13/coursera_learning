@@ -15,35 +15,51 @@ const sumOfNumbersFunction=(num1,num2)=>{
 const functionRes = sumOfNumbersFunction(3,4)
 console.log(functionRes)
 
-
 </script>
-<style>
-	.button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-</style>
 </head>
 <body>
 
 	<form name = "form">
-		/* inside the body we will put the button which takes two numbers and prints the sum of them*/
+		<!-- inside the body we will put the button which takes two numbers and prints the sum of them -->
+		<!-- we use id to catch each element with a value on it -->
+		
+		<h1>Sum of two numbers</h1>
 
-		Jepni dy numra:<input name = "txt" type = "text"/>
+		<div> Jepni numrin e pare :<input id="num1" name = "num1" type = "number"/></div>
 
-		<input name="shuma" onclick="sumOfNumbersFunction(num1,num2);"type="button" value="Shfaq"/>
+		<div> Jepni numrin e dyte:<input id="num2" name = "num2" type = "number"/></div>
+
+		<div>
+
+			 <button name="shuma" onclick="sumOfNumbersFunction(num1,num2);"type="button" value="Shfaq"> Sum </button>
+
+		</div>
+
+
+		<div>
+
+			Shuma eshte: <div> </div>
+
+		</div>
 
 	</form>
 
-	<h1>Sum of two numbers</h1>
-
 </body>
+<style>
+
+	.button {
+	  background-color: #4CAF50;
+	  border: none;
+	  color: rgb(252, 248, 248);
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 4px 2px;
+	  cursor: pointer;
+	}
+	
+	</style>
 </html>
+>
