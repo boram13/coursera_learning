@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hello World!</title>
+<title>Sum of two numbers</title>
+<script> 
+
+const sumOfNumbersFunction=(num1,num2)=>{
+    
+	let sum
+	sum = num1 + num2
+	return sum
+}
+const functionRes = sumOfNumbersFunction(3,4)
+console.log(functionRes)
+
+
+</script>
 </head>
 <body>
-	<h1>Hello World!</h1>
+	<form name = "form">
+		Jepni dy numra:<input name = "txt" type = "text"/>
+		<input name="shuma" onclick="sumOfNumbersFunction(num1,num2);"type="button" value="Shfaq"/>
+
+	</form>
+	<h1>Sum of two numbers</h1>
 </body>
 </html>
