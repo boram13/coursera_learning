@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--add bootststrap  css styles -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!--add bootststrap  js styles -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <title>Sum of two numbers</title>
 
 <script> 
@@ -11,15 +22,21 @@ const sumOfNumbersFunction=()=>{
     // get and save the value of the number(still string)
 	const num1 = document.getElementById("num1").value
 	const num2 = document.getElementById("num2").value
+
 	
+	//adding an alert if one of the two numbers is null or just a space 
+	if ((num1 == null || num1 == '') || (num2 == null || num2 == '')){
+		alert("Plotesoni te dy  hapesirat qe veprimi te kryhet")
+		return
+	}
+
 	//convert string to number
 	let n1 = Number(num1)
 	let n2 = Number(num2)
-
-	//shuma,meret nga id ne div tag
+	let sum = n1 + n2;
 	
-	let  sum = n1+n2;
-
+	
+	//shuma,meret nga id ne div tag
 	document.getElementById('sum').innerHTML = sum;
 	
 }
@@ -40,10 +57,11 @@ const sumOfNumbersFunction=()=>{
 
 		<div>
 
-			 <button name="shuma" onclick="sumOfNumbersFunction();"type="button" value="Shfaq"> Sum </button>
+			<!--add button style(class)-->
+			 <button name="shuma" onclick="sumOfNumbersFunction()" class="btn btn-primary" type="button" value="Shfaq"> Sum </button>
 
 		</div>
-
+	
 
 		<div>
 
@@ -69,6 +87,6 @@ const sumOfNumbersFunction=()=>{
 	  cursor: pointer;
 	}
 	
+
 	</style>
 </html>
->
