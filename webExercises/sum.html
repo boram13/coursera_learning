@@ -37,7 +37,7 @@ const sumOfNumbersFunction=()=>{
 	
 	
 	//shuma,meret nga id ne div tag
-	document.getElementById('sum').innerHTML = sum;
+	document.getElementById('sum').innerHTML =  "Shuma eshte: " + sum;
 	
 }
 
@@ -57,15 +57,16 @@ const sumOfNumbersFunction=()=>{
 
 		<div>
 
-			<!--add button style(class)-->
-			 <button name="shuma" onclick="sumOfNumbersFunction()" class="btn btn-primary" type="button" value="Shfaq"> Sum </button>
+			<!--add button style(class) || making the div tag "Shuma eshte" invisible--> 
+			 <button name="shuma" onclick="sumOfNumbersFunction()"  onclick="toggleDisplay()"  class="btn btn-primary" type="button" value="Shfaq"> Sum </button>
+			
 
 		</div>
 	
 
 		<div>
 
-			Shuma eshte: <div id="sum" name = "sum" type = "number"> </div>
+			<div id="sum" name = "sum" type = "number"> </div>
 
 		</div>
 
