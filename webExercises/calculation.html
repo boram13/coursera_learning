@@ -27,14 +27,14 @@ function calculatorOfNumbersFunction(num) {
         if(veprimi =="Division"){
             let veprimi = "/";
         }
+        document.getElementById("total_val").innerHTML=veprimi;
         return veprimi;
 }
 
 function calculatorOfNumbersFunction(){
         let operation = calculatorOfNumbersFunction();
         let nr1 = document.getElementById('nr1').value;
-        let nr2 = document.getElementById("nr2").value = (nr1 - (nr1/100)*2).toFixed(2);
-        let result = nr1 + opr + nr2;
+        let nr2 = document.getElementById("nr2").value;
         document.getElementById('total_val').inner.HTML= result;
     }
 </script>
@@ -49,7 +49,6 @@ function calculatorOfNumbersFunction(){
     .formstyle
         {
     width: 550px;
-    height: 450px;
     margin: auto;
     border: 3px solid rgb(91, 129, 146);
     border-radius: 5px;
@@ -61,35 +60,40 @@ function calculatorOfNumbersFunction(){
 
 <body>
 <h1> Calculatori me dy parametra</h1>
-<div class = "formstyle">
-<form name = "form">
+<div class="formstyle">
+<form name="form">
+    <form>
+        <div class="mb-3">
+          <label for="inputTheFirstNumber" class="form-label">Numri i pare</label>
+          <input type="number" class="form-control" id="inputTheFirstNumber" aria-describedby="numberHelp">
+          <div id="numberHelp" class="form-text">You have to add one number that action can be done</div>
+        </div>
 
-<br> First Number: <input type="number" name="firstNumber" placeholder="first Number"/><br>
+        <div class="mb-3">
+            <label for="selectOperation" class="form-label">Select an operation</label>
+            <select class="custom-select" id="selectOperation" aria-label="Default select example">
+                <option selected value="+"> Addition </option>
+                <option value="-"> Subtraction </option>
+                <option value="*"> Mutiplication </option>
+                <option value="/"> Division </option>
+            </select>
+        </div>
 
-<select class="form-select" aria-label="Default select example">
+        <div class="mb-3">
+            <label for="inputTheSecondNumber" class="form-label">Numri i dyte</label>
+            <input type="number" class="form-control" id="inputTheFirstNumber" aria-describedby="numberHelp">
+            <div id="numberHelp" class="form-text">You have to add one number that action can be done</div>
+          </div>
+       
+        <button type="calaculate" class="btn btn-primary">Calculate</button>
 
-    <option value="+">Mledhje</option>
-    
-  </select>
+        <div class="mb-3">
+            <label for="output" class="form-label">The result of calculation is:</label>
+            <!-- <input type="number" class="form-control" id="output"> -->
+          </div>
+      </form>
 
-  <br> Second Number: <input type="number" name="secondNumber" placeholder="second Number"/><br>
-<div>
 
-	<button name="calculate" onclick="calculatorOfNumbersFunction()"  class="btn btn-primary" type="button" value="Shfaq"> Calculate </button>
-	
-    <select name="selectOperation" id="selectOperation" onChange="calculatorOfNumbersFunction">
-        <option disabled selected>Select operation </option>
-        <option value="Addition"> Addition </option>
-        <option value="Subtraction"> Subtraction </option>
-        <option value="Mutiplication"> Mutiplication </option>
-        <option value="Division"> Division </option>
-      </select>
-      
-      <input type="number" id="nr1" name="nr1" onKeyUp="calculateNow()">
-      <input type="number" id="nr2" name="vnr2" onKeyUp="calculateNow()">
-      <p id="total_val"></p>		
-
-</div>
 </form>
 </div>
 
