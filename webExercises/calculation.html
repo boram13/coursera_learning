@@ -9,6 +9,35 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script> 
+
+function calculatorOfNumbersFunction(num) {
+
+    let veprimi= num.options[num.selectedIndex].value;
+
+        if(veprimi == "Addition"){
+            let veprimi = "+";
+        }
+        if(veprimi=="Subtraction"){
+            let veprimi = "-";
+        }
+        if(veprimi =="Mutiplication"){
+            let veprimi = "*";
+        }
+        if(veprimi =="Division"){
+            let veprimi = "/";
+        }
+        return veprimi;
+}
+
+function calculatorOfNumbersFunction(){
+        let operation = calculatorOfNumbersFunction();
+        let nr1 = document.getElementById('nr1').value;
+        let nr2 = document.getElementById("nr2").value = (nr1 - (nr1/100)*2).toFixed(2);
+        let result = nr1 + opr + nr2;
+        document.getElementById('total_val').inner.HTML= result;
+    }
+</script>
 <style>
     h1 {
 	text-align: center;
@@ -33,13 +62,36 @@
 <body>
 <h1> Calculatori me dy parametra</h1>
 <div class = "formstyle">
-<form name = "form1">
-<input type = "button" value="first number" onclick="form.input.value">
- 
+<form name = "form">
+
+<br> First Number: <input type="number" name="firstNumber" placeholder="first Number"/><br>
+
+<select class="form-select" aria-label="Default select example">
+
+    <option value="+">Mledhje</option>
+    
+  </select>
+
+  <br> Second Number: <input type="number" name="secondNumber" placeholder="second Number"/><br>
+<div>
+
+	<button name="calculate" onclick="calculatorOfNumbersFunction()"  class="btn btn-primary" type="button" value="Shfaq"> Calculate </button>
+	
+    <select name="selectOperation" id="selectOperation" onChange="calculatorOfNumbersFunction">
+        <option disabled selected>Select operation </option>
+        <option value="Addition"> Addition </option>
+        <option value="Subtraction"> Subtraction </option>
+        <option value="Mutiplication"> Mutiplication </option>
+        <option value="Division"> Division </option>
+      </select>
+      
+      <input type="number" id="nr1" name="nr1" onKeyUp="calculateNow()">
+      <input type="number" id="nr2" name="vnr2" onKeyUp="calculateNow()">
+      <p id="total_val"></p>		
+
+</div>
 </form>
 </div>
 
 </body>
-   
-
 </html>
