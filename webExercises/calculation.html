@@ -12,12 +12,19 @@
 <script> 
 function calculatorOfNumbersFunction() {
 
-    const nr1 = document.getElementById("nr1").value
-	const nr2 = document.getElementById("nr2").value
+    const num1 = document.getElementById("nr1").value
+	const num2 = document.getElementById("nr2").value
+	//convert string to number
+	let nr1 = Number(num1)
+	let nr2 = Number(num2)
 
-    let operator = document.getElementById("selectOperation").value
+    let operatorElement = document.getElementById("selectOperation")
+    let operator = operatorElement.value
+    let operatorText = operatorElement.options[operatorElement.selectedIndex].text;
     let output;
     
+    // find operatorText
+
     if ((nr1 == null || nr1 == '') || (nr2 == null || nr2 == '')){
 		alert("Plotesoni te dy  hapesirat qe veprimi te kryhet")
 		return
@@ -35,9 +42,9 @@ function calculatorOfNumbersFunction() {
     }
     if(operator == "/"){
         output = nr1 / nr2;
-    }
 
-    document.getElementById('total_val').innerHTML = "The result of calculation is: " + parseFloat(output);
+    }
+    document.getElementById('total_val').innerHTML = "The result of " + operatorText + " is: " + parseFloat(output);
 }
 
 </script>
@@ -76,7 +83,7 @@ function calculatorOfNumbersFunction() {
         <label for="selectOperation" class="form-label">Select an operation</label>
         <select class="custom-select" id="selectOperation" aria-label="Default select example">
             <option selected value="+"> Addition </option>
-            <option value="-"> Subtraction </option>
+            <option value="-"> Subtraction</option>
             <option value="*"> Mutiplication </option>
             <option value="/"> Division </option>
         </select>
