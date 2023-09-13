@@ -1,4 +1,8 @@
 <!-- Krijo nje calculator sipas formes se dhene (skema me shkrim) qe ben veprimet matematikore +,-,*,%-->
+<!--Extra request 1: display the type of operator used  in output string -->
+<!--Extra request 2: call a function inside the function you have done to make the sum, the first function 
+    makes dhe operations the second will do the correct calculation depending on requirements-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,27 +14,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script> 
-function calculatorOfNumbersFunction() {
 
-    const num1 = document.getElementById("nr1").value
-	const num2 = document.getElementById("nr2").value
-	//convert string to number
-	let nr1 = Number(num1)
-	let nr2 = Number(num2)
-
-    let operatorElement = document.getElementById("selectOperation")
-    let operator = operatorElement.value
-    let operatorText = operatorElement.options[operatorElement.selectedIndex].text;
-    let output;
-    
-    // find operatorText
-
-    if ((nr1 == null || nr1 == '') || (nr2 == null || nr2 == '')){
-		alert("Plotesoni te dy  hapesirat qe veprimi te kryhet")
-		return
-	}
-
-
+function getOutput(nr1, nr2, operator){
+    let output
     if(operator == "+"){
         output = nr1 + nr2;
     }
@@ -42,9 +28,31 @@ function calculatorOfNumbersFunction() {
     }
     if(operator == "/"){
         output = nr1 / nr2;
-
     }
-    document.getElementById('total_val').innerHTML = "The result of " + operatorText + " is: " + parseFloat(output);
+    return output;
+}
+
+function calculatorOfNumbersFunction() {
+    
+    const num1 = document.getElementById("nr1").value
+	const num2 = document.getElementById("nr2").value
+	//convert string to number
+	let nr1 = Number(num1)
+	let nr2 = Number(num2)
+
+    let operatorElement = document.getElementById("selectOperation")
+    let operator = operatorElement.value
+    let operatorText = operatorElement.options[operatorElement.selectedIndex].text;
+
+    // find operatorText
+
+    if ((nr1 == null || nr1 == '') || (nr2 == null || nr2 == '')){
+		alert("Plotesoni te dy  hapesirat qe veprimi te kryhet")
+		return
+	}
+
+    document.getElementById('total_val').innerHTML = "The result of " + operatorText + " is: " + parseFloat(getOutput(nr1, nr2, operator));
+
 }
 
 </script>
@@ -99,11 +107,12 @@ function calculatorOfNumbersFunction() {
 
     <div class="mb-3">
         <label for="output"  type="button"  id="total_val" class="form-label"></label>
-        <!-- <input type="number" class="form-control" id="output"> -->
     </div>
+   
 </form>
 </div>
 <script>
+    // ndalon rrjedhjen bydefault 
 function stopDefAction(evt) {
     evt.preventDefault();
 }
