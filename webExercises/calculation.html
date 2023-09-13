@@ -2,6 +2,7 @@
 <!--Extra request 1: display the type of operator used  in output string -->
 <!--Extra request 2: call a function inside the function you have done to make the sum, the first function 
     makes dhe operations the second will do the correct calculation depending on requirements-->
+<!--Extra request3: create another function which returns selected parameters, and will be used inside the calculatorOfNumbersFunction() function -->
 
 <!DOCTYPE html>
 <html>
@@ -32,17 +33,26 @@ function getOutput(nr1, nr2, operator){
     return output;
 }
 
+function getSelectOperationParameters() {
+    let operatorElement = document.getElementById("selectOperation")
+    let operator = operatorElement.value
+    let operatorText = operatorElement.options[operatorElement.selectedIndex].text;
+
+    const selected = { 
+        opElement: operatorElement,
+        op: operator,
+        opText: operatorText
+    }
+    return selected;
+}
+
 function calculatorOfNumbersFunction() {
-    
+   
     const num1 = document.getElementById("nr1").value
 	const num2 = document.getElementById("nr2").value
 	//convert string to number
 	let nr1 = Number(num1)
 	let nr2 = Number(num2)
-
-    let operatorElement = document.getElementById("selectOperation")
-    let operator = operatorElement.value
-    let operatorText = operatorElement.options[operatorElement.selectedIndex].text;
 
     // find operatorText
 
@@ -50,8 +60,10 @@ function calculatorOfNumbersFunction() {
 		alert("Plotesoni te dy  hapesirat qe veprimi te kryhet")
 		return
 	}
+    let selectPramaeters = getSelectOperationParameters();
+    let output = getOutput(nr1, nr2, selectPramaeters.op);
 
-    document.getElementById('total_val').innerHTML = "The result of " + operatorText + " is: " + parseFloat(getOutput(nr1, nr2, operator));
+    document.getElementById('total_val').innerHTML = "The result of " + selectPramaeters.opText + " is: " + parseFloat(output);
 
 }
 
